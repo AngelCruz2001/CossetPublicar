@@ -115,7 +115,9 @@ dialog.matches('Saludo', [function (session) {
     }
 }]);
 dialog.matches('None', [function (session) {
-    session.send("NONE");
+    session.send("No te entendi bien ¿Que es lo que quieres hacer?");
+    session.send("¿Puedes volver a repertirlo?");
+    session.beginDialog('/')
 }]);
 dialog.matches('Despedida', [function (session) {
     var Random = Math.floor(Math.random() * 4) + 1;
