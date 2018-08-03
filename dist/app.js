@@ -31,7 +31,7 @@ server.listen(process.env.port || process.env.PORT || 3000, function () {
     console.log('listering to', server.name, server.url);
 });
 //Configuraciones del bot
-var connector = new builder.ChatConnector({ appId: '', appPassword: '' });
+var connector = new builder.ChatConnector({ appId: '7fd8d18c-3ef1-481b-bd81-43b89f3f8fbc', appPassword: 'zhgpDZMYYF74$tpsF830_):' });
 //Crear bot
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
