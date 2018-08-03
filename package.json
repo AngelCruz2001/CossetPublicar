@@ -1,0 +1,33 @@
+{
+  "name": "botcossete",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AngelCruz2001/Cossete.git",
+  "author": "AngelCruz2001 <Angi_ed01@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./dist/app.js",
+    "clean": "rm -rf dist/",
+    "build": "npm run clean && mkdir dist && babel server -s -d dist",
+    "production": "npm run build && node bin/production",
+    "dev": "npm run start"
+  },
+  "dependencies": {
+    "base64-img": "^1.0.4",
+    "botbuilder": "^3.15.0",
+    "btoa": "^1.2.1",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.2.5",
+    "mysql": "^2.16.0",
+    "natural": "^0.6.1",
+    "opn": "^5.3.0",
+    "restify": "^7.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0"
+  }
+}
