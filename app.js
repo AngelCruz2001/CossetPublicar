@@ -6,7 +6,7 @@ var restify = require('restify');
 var btoa = require('btoa');
 var base64img = require('base64-img');
 var opn = require('opn');
-var Diccionario = require('../Diccionario');
+var Diccionario = require('./Diccionario');
 //Variables globales
 var conexion = require('./db/Consultas');
 var connector = require('./db/conexion');
