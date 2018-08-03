@@ -27,7 +27,7 @@ var ProductoElegido = "",
 var server = restify.createServer();
 connector.conectar();
 //configurando puerto
-server.listen(process.env.port || process.env.PORT || 3000, function () {
+server.listen(3000, function () {
     console.log('listering to', server.name, server.url);
 });
 //Configuraciones del bot
@@ -136,7 +136,7 @@ dialog.matches('Despedida', [function (session) {
 }]);
 
 //Dialogos dependiendo del intento detectado por LUIS
-dialog.matches('Comprar', [async function (session, args, next) {
+dialog.matches('Comprar', [(session, args, next)=> {
     var Producto = builder.EntityRecognizer.findAllEntities(args.entities, 'Producto');
     var Precio = builder.EntityRecognizer.findAllEntities(args.entities, 'Precio');
     var Imagen = builder.EntityRecognizer.findAllEntities(args.entities, 'Imagen');
@@ -154,11 +154,11 @@ dialog.matches('Comprar', [async function (session, args, next) {
         revisar = "Imagen";
     }
     if (ProductoElegido !== "") {
-        await conexion.BP(ProductoElegido).then(function (respuesta) {
+        conexion.BuscarProducto(ProductoElegido).then(function (respuesta) {
             ProductosElegidos = respuesta; //¿Que la consulta o mostrar los productos?
         });
     } else {
-        await conexion.BuscarSE().then(function (respuesta) {
+        conexion.BuscarProductoSE().then(function (respuesta) {
             ProductosElegidos = [];
             ProductosElegidos = respuesta;
         });
